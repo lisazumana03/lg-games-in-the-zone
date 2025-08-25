@@ -41,4 +41,9 @@ public class BookingService implements IBookingService {
         }
         return null;
     }
+
+    @Override
+    public void delete(String bookingId) {
+        bookingRepository.deleteById(bookingId);
+    }
 }
