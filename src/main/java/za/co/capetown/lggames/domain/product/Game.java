@@ -3,6 +3,10 @@ package za.co.capetown.lggames.domain.product;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import za.co.capetown.lggames.domain.reservation.Booking;
+
+import java.util.List;
 
 @Entity
 public class Game {
@@ -13,6 +17,8 @@ public class Game {
     private double gamePrice;
     @ManyToOne
     private Console console;
+    @OneToMany
+    private List<Booking> bookingList;
 
     public Game(){}
 
