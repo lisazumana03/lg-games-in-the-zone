@@ -17,4 +17,10 @@ public class BookingController {
         return ResponseEntity.ok(bookingService.create(booking));
     }
 
+    @DeleteMapping("/cancel")
+    public ResponseEntity<Void> delete(@RequestBody String id) {
+        bookingService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
