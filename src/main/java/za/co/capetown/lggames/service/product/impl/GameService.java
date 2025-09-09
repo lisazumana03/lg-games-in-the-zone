@@ -32,7 +32,7 @@ public class GameService implements IGameService {
 
     @Override
     public List<Game> getAll() {
-        return List.of();
+        return gameRepository.findAll();
     }
 
     @Override

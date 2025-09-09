@@ -7,6 +7,7 @@ import za.co.capetown.lggames.repository.authentication.IUserRepository;
 import za.co.capetown.lggames.service.authentication.IUserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {
@@ -14,23 +15,24 @@ public class UserService implements IUserService {
     @Autowired
     private IUserRepository userRepository;
 
+
     @Override
-    public User create(User user) {
+    public User registerUser(User user) {
         return userRepository.save(user);
     }
 
     @Override
-    public User read(String s) {
-        return null;
+    public boolean authenticateUser(String email, String password) {
+        Optional<User> findByEmail = userRepository.findByEmail(email);
+        if (findByEmail.isPresent()){
+            User user = findByEmail.get();
+            return user.getPassword().equals(password);
+        }
+        return false;
     }
 
     @Override
-    public List<User> getAll() {
-        return userRepository.findAll();
-    }
-
-    @Override
-    public User update(String userId, User user) {
-        return null;
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 }
