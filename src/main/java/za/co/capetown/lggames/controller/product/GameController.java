@@ -1,5 +1,6 @@
 package za.co.capetown.lggames.controller.product;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,11 @@ public class GameController {
     @PostMapping("/create")
     public ResponseEntity<Game> create(@RequestBody Game game) {
         return ResponseEntity.ok(gameService.create(game));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Game>> getAll(){
+        return ResponseEntity.ok(gameService.getAll());
     }
 
     @DeleteMapping("/delete/{gameId}")

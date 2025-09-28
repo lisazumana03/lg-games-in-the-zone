@@ -1,13 +1,13 @@
 package za.co.capetown.lggames.service.product.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import za.co.capetown.lggames.domain.product.Console;
-import za.co.capetown.lggames.domain.product.Game;
 import za.co.capetown.lggames.repository.product.IConsoleRepository;
 import za.co.capetown.lggames.service.product.IConsoleService;
-
-import java.util.List;
 
 @Service
 public class ConsoleService implements IConsoleService {

@@ -57,6 +57,10 @@ public class User {
         return role;
     }
 
+    public void setPassword(String encode) {
+        this.password = encode;
+    }
+
     public static class Builder{
         private String userId;
         private Name name;
